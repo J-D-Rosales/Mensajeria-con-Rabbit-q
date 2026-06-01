@@ -2,6 +2,7 @@ const express = require('express');
 const { connectQueue } = require('./rabbitmq');
 
 const app = express();
+app.disable('x-powered-by');
 app.use(express.json());
 
 let channel;
