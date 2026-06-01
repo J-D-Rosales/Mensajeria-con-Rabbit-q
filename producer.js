@@ -35,10 +35,11 @@ app.post('/api/cenas', async (req, res) => {
         }
 
     } catch (error) {
+        // Usamos la variable error para que SonarQube vea que sí la manejamos
+        console.error('Error capturado en el servidor:', error); 
         return res.status(500).json({ error: 'Error interno del servidor' });
     }
 });
-
 // Solo iniciamos el servidor si no estamos en entorno de pruebas
 if (process.env.NODE_ENV !== 'test') {
     app.listen(3000, () => console.log('API del Restaurante corriendo en puerto 3000'));
